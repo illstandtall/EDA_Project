@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+
+    <title>EDA Project illstandtall</title>
+
+</head>
+<body class="bg-dark">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="/">Montly Project I. EDA Project</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="/">Description</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/type">Type에 따른 분석</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/color">Color에 따른 분석</a>
+                  </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <div class="text-secondary px-4 py-5 text-center">
+            <div class="py-5">
+                <h1 class="display-4 fw-bold text-white">Star Type Classification / NASA</h1>
+                <h2 class="display-7 text-white">For Type Prediction & Classification</h2>
+                <div class="col-lg-6 mx-auto">
+                  <p class="fs-5 mb-4">For comparing all models of ML. It can be used for prediction.</p>
+                  <p class="fs-5 mb-4">적색왜성, 갈색왜성, 백색왜석, 주계열성, 초거성, 극대거성의 분류로 나뉩니다.</p>
+                  <p class="fs-5 mb-4">각 분류별로 40개의 데이터이며, 총 240개의 데이터입니다.</p>
+                  <p class="fs-5 mb-4">별의 온도, 상대밝기, 상대반지름, 절대등급, 색깔, 방출스펙트럼의 속성이 있습니다.</p>
+                  <p class="fs-5 mb-4">NASA에서 공개한 데이터입니다.</p>
+                  <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <a class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold" 
+                        href="https://www.kaggle.com/brsdincer/star-type-classification" role="button">kaggle 데이터 보기</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+
+        <div class="b-example-divider"></div>
+
+        <section>
+            <div class="text-secondary px-4 py-5">
+                <div class="py-5">
+                  <h2 class="display-7 fw-bold text-white  text-center">각 속성에 대한 설명</h2>
+                    <div class="row">
+                      <div class="col-sm"></div>
+                      <div class="col-sm text-left">
+                        <h3 id="속성-분석">속성 분석</h3><ul>
+                        <p class="text-left">
+                          <li class=""><strong><code>Temperature</code></strong>: Temperature (온도)</li>
+                          <li><strong><code>L</code></strong>: Relative Luminosity (상대 밝기)<ul>
+                          <li>L/Lo: 해당 별의 밝기를 태양의 평균 밝기로 나눈 값</li>
+                          </ul>
+                          </li>
+                          <li><strong><code>R</code></strong>: Relative Radius (상대 반지름)<ul>
+                          <li>R/Ro: 해당 별의 반지름을 태양의 평균 반지름으로 나눈 값</li>
+                          </ul>
+                          </li>
+                          <li><strong><code>A_M</code></strong>: Absolute Magnitude (절대 등급)<ul>
+                          <li>천체의 광도를 등급으로 나타낸 로그함수로, 천체가 정확히 10 파섹 (32.6 광년) 떨어져 있고 우주진에 의한 소광이 없다고 가정했을 때의 겉보기등급이다.</li>
+                          <li>낮을 수록 밝은 별이다.</li>
+                          </ul>
+                          </li>
+                          <li><strong><code>Color</code></strong>: General Color of Spectrum<ul>
+                          <li>별의 나이를 추정해볼 수 있는 속성</li>
+                          <li>푸른 별은 젊고, 나이가 들수록 별이 붉어진다.</li>
+                          </ul>
+                          </li>
+                          <li><strong><code>Spectral_Class</code></strong>: O,B,A,F,G,K,M / SMASS - <a href="https://en.wikipedia.org/wiki/Asteroid_spectral_types">https://en.wikipedia.org/wiki/Asteroid_spectral_types</a></li>
+                          <li><strong><code>Type</code></strong>: (유형)<ul>
+                          <li>0: Red Dwarf (적색 왜성)<ul>
+                          <li>작고 상대적으로 차가우며 태양의 0.081-0.5배 정도의 질량을 지닌 주계열성을 부르는 말</li>
+                          </ul>
+                          </li>
+                          <li>1: Brown Dwarf (갈색 왜성)<ul>
+                          <li>제일 무거운 가스행성과 가장 가벼운 항성 사이 질량 범위에 존재하는 준항성천체</li>
+                          </ul>
+                          </li>
+                          <li>2: White Dwarf (백색 왜성)<ul>
+                          <li>중간 이하의 질량을 지닌 항성이 핵융합을 마치고 도달하는 천체</li>
+                          </ul>
+                          </li>
+                          <li>3: Main Sequence (주계열성)<ul>
+                          <li>천문학에서 항성의 색등급도상에 나타나는 연속적이며 독특한 별의 띠를 말한다. 주계열은 색등급도에서 오른쪽 아래에서 왼쪽 위를 크게 가로지르며, 주계열 위에 위치한 별을 주계열성(主系列星, main sequence star) 또는 왜성(矮星, dwarf star)이라고 부른다</li>
+                          </ul>
+                          </li>
+                          <li>4: Super Giants (초거성)<ul>
+                          <li>초거성은 태양질량의 8~12 배 이상의 질량을 가지고 있고, 광도는 태양광도의 약 10,000 배에서 백만 배 이상이다.</li>
+                          </ul>
+                          </li>
+                          <li>5: Hyper Giants (극대거성)<ul>
+                          <li>여태까지 발견된 것 중 가장 밝은 별들을 뭉뚱그려 일컫는 용어</li>
+                          </ul>
+                          </li>
+                          </ul>
+                          </li>
+                          </ul>
+                        </p>
+                      </div>
+                      <div class="col-sm">
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="b-example-divider"></div>
+
+        <section>
+            <div class="text-secondary px-4 py-5 text-center">
+                <div class="py-5">
+                  <h2 class="display-7 fw-bold text-white">각 속성에 대한 상관계수 그래프</h2>
+                  <div class="col-lg-6 mx-auto">
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"></div>
+                    <div class="chart-area",  id="corr", style="height: max-content;">
+                      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                      <script type="text/javascript">      
+                          var graphs = {{ plots.corr | safe }}
+                          Plotly.plot('corr',graphs,{});                                                  
+                      </script>     
+                    </div>
+                    <p class="fs-5 mb-4 text-white"> </p>
+                    <p class="fs-5 mb-4 text-white">1. 속성끼리 얼마나 상관관계를 가지는지 알려줍니다.</p>
+                    <p class="fs-5 mb-4 text-white">2. 0과 1의 사이의 수를 가집니다.</p>
+                    <p class="fs-5 mb-4 text-white">3. 절대값이 높을 수록 각 속성끼리는 높은 상관관계를 가집니다.</p>
+                  </div>
+                </div>
+            </div>
+        </section>
+        <div class="b-example-divider"></div>
+      </main>
+
+
+</body>
+<footer class="bg-dark footer mt-auto py-3 bg-light">
+    <div class="container text-center">
+      <span class="text-muted">
+        <p class="fs-5 mb-4">Name: 이민혁</p>
+        <p class="fs-5 mb-4">E-mail: illstandtall@gmail.com</p>
+        <p class="fs-5 mb-4">Github: 
+            <a href="https://github.com/illstandtall">https://github.com/illstandtall</a>
+        </p>
+        <p class="fs-5 mb-4">Blog: 
+            <a href="https://velog.io/@illstandtall">https://velog.io/@illstandtall</a>
+        </p>
+      </span>
+    </div>
+</footer>
+</html>

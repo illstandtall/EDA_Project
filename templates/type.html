@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+
+    <title>EDA Project illstandtall</title>
+
+</head>
+<body class="bg-dark">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="/">Montly Project I. EDA Project</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/">Description</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/type">Type에 따른 분석</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/color">Color에 따른 분석</a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <div class="text-secondary px-4 py-5 text-center">
+            <div class="py-5">
+                <h1 class="display-4 fw-bold text-white">Star Type Classification / NASA</h1>
+                <h2 class="display-7 text-white">For Type Prediction & Classification</h2>
+                <div class="col-lg-6 mx-auto">
+                  <p class="fs-5 mb-4">For comparing all models of ML. It can be used for prediction.</p>
+                  <p class="fs-5 mb-4">적색왜성, 갈색왜성, 백색왜석, 주계열성, 초거성, 극대거성의 분류로 나뉩니다.</p>
+                  <p class="fs-5 mb-4">각 분류별로 40개의 데이터이며, 총 240개의 데이터입니다.</p>
+                  <p class="fs-5 mb-4">별의 온도, 상대밝기, 상대반지름, 절대등급, 색깔, 방출스펙트럼의 속성이 있습니다.</p>
+                  <p class="fs-5 mb-4">NASA에서 공개한 데이터입니다.</p>
+                  <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <a class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold" 
+                        href="https://www.kaggle.com/brsdincer/star-type-classification" role="button">kaggle 데이터 보기</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div class="text-secondary px-4 py-5 text-center">
+                <div class="py-5">
+                  <h2 class="display-7 fw-bold text-white">별의 속성에 대한 평행좌표그래프</h2>
+                  <div class="col-lg-6 mx-auto">
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"></div>
+                    <div class="chart-area",  id="p_c", style="height: max-content;">
+                      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                      <script type="text/javascript">      
+                          var graphs = {{ plots.p_c | safe }}
+                          Plotly.plot('p_c',graphs,{});                                                  
+                      </script>     
+                    </div>
+                    <p class="fs-5 mb-4 text-white"> </p>
+                    <p class="fs-5 mb-4 text-white">1. 온도의 분포는 아주 다양합니다.</p>
+                    <p class="fs-5 mb-4 text-white">2. Type 4, 5를 제외한 상대 밝기는 0에 가깝습니다.</p>
+                    <p class="fs-5 mb-4 text-white">3. Type 5를 제외한 상대 반지름은 0에 가깝습니다.</p>
+                    <p class="fs-5 mb-4 text-white">4. 절대 등급은 작은 값이 더 밝은 별이기 때문에</p>
+                    <p class="fs-5 mb-4 text-white">Type의 순서와 반대임을 알 수 있습니다.</p>
+                  </div>
+                </div>
+            </div>
+        </section>
+        <div class="b-example-divider"></div>
+        <section>
+          <div class="text-secondary px-4 py-5 text-center">
+              <div class="py-5">
+                <h2 class="display-7 fw-bold text-white">상대 밝기(L)와 상대 반지름(R) 분포</h2>
+                <div class="col-lg-6 mx-auto">
+                  <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"></div>
+                  <div class="chart-area",  id="l_r", style="height: max-content;">
+                    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                    <script type="text/javascript">      
+                        var graphs = {{ plots.l_r | safe }}
+                        Plotly.plot('l_r',graphs,{});                                                  
+                    </script>     
+                  </div>
+                  <p class="fs-5 mb-4 text-white"> </p>
+                  <p class="fs-5 mb-4 text-white">1. 대부분의 분류의 데이터가 상대 밝기는 많이 차이나지만,</p>
+                  <p class="fs-5 mb-4 text-white">상대 반지름은 거의 비슷한 것을 알 수 있습니다.(수평으로 분포)</p>
+                  <p class="fs-5 mb-4 text-white">2. 분류별로 데이터 값의 분포가 극단적으로 차이가 납니다.</p>
+                  <p class="fs-5 mb-4 text-white">(0,0) 좌표 근처를 확대해보면</p>
+                  <p class="fs-5 mb-4 text-white">Type 0, 1, 2의 별들이 모여 있음을 알 수 있습니다.</p>
+                </div>
+              </div>
+          </div>
+        </section>
+        <div class="b-example-divider"></div>
+        <section>
+          <div class="text-secondary px-4 py-5 text-center">
+              <div class="py-5">
+                <h2 class="display-7 fw-bold text-white">절대 등급(A_M)과 온도(Temperature)의 분포</h2>
+                <div class="col-lg-6 mx-auto">
+                  <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"></div>
+                  <div class="chart-area",  id="am_tem", style="height: max-content;">
+                    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                    <script type="text/javascript">      
+                        var graphs = {{ plots.am_tem | safe }}
+                        Plotly.plot('am_tem',graphs,{});                                                  
+                    </script>     
+                  </div>
+                  <p class="fs-5 mb-4 text-white"> </p>
+                  <p class="fs-5 mb-4 text-white">1. Type 0에서 Type 5로 갈 수록 (왼쪽에서 오른쪽)</p>
+                  <p class="fs-5 mb-4 text-white">절대등급이 낮아지는 것을 알 수 있습니다.</p>
+                  <p class="fs-5 mb-4 text-white">따라서, 절대등급을 통해 어떤 분류인지 대략적으로 알 수 있습니다.</p>
+                  <p class="fs-5 mb-4 text-white">2. Type 3, 4, 5는 분류 내에서 온도의 분포는 다양하지만, </p>
+                  <p class="fs-5 mb-4 text-white">절대 등급은 비슷한 분포를 보입니다.</p>
+                  <p class="fs-5 mb-4 text-white">따라서, 온도를 통해 별의 분류를 알기 어렵습니다. </p>
+                </div>
+              </div>
+          </div>
+        </section>
+        <div class="b-example-divider"></div>
+        <section>
+          <div class="text-secondary px-4 py-5 text-center">
+              <div class="py-5">
+                  <h2 class="display-7 fw-bold text-white">절대 등급(A_M)과 온도(Temperature), 상대 밝기(L)의 분포</h2>
+                <div class="col-lg-6 mx-auto">
+                  <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"></div>
+                  <div class="chart-area",  id="am_l_tem", style="height: max-content;">
+                    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                    <script type="text/javascript">      
+                        var graphs = {{ plots.am_l_tem | safe }}
+                        Plotly.plot('am_l_tem',graphs,{});                                                  
+                    </script>     
+                  </div>
+                  <p class="fs-5 mb-4 text-white"> </p>
+                  <p class="fs-5 mb-4 text-white">상대 밝기도 추가해보았습니다.</p>
+                </div>
+              </div>
+          </div>
+        </section>
+        <div class="b-example-divider"></div>
+      </main>
+
+
+</body>
+<footer class="bg-dark footer mt-auto py-3 bg-light">
+    <div class="container text-center">
+      <span class="text-muted">
+        <p class="fs-5 mb-4">Name: 이민혁</p>
+        <p class="fs-5 mb-4">E-mail: illstandtall@gmail.com</p>
+        <p class="fs-5 mb-4">Github: 
+            <a href="https://github.com/illstandtall">https://github.com/illstandtall</a>
+        </p>
+        <p class="fs-5 mb-4">Blog: 
+            <a href="https://velog.io/@illstandtall">https://velog.io/@illstandtall</a>
+        </p>
+      </span>
+    </div>
+</footer>
+</html>
